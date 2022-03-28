@@ -1,0 +1,20 @@
+{
+  "name": "05.apirest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon inde.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "fetch": "^1.1.0",
+    "node-fetch": "^3.2.3"
+  }
+}
