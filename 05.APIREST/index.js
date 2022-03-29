@@ -32,6 +32,12 @@ const marte =async(i)=> {
     var imagenUrl=fotosMarte.photos[i].img_src;
     document.getElementById("tarjeta").appendChild(imagen);
     document.getElementById(imagen.id).src=imagenUrl;
+    console.log(fotosMarte.photos[i].camera.full_name);
+    console.log(fotosMarte.photos[i].rover);
+    var petiqueta=document.createElement("h2")
+    petiqueta.innerHTML= `Esta foto fue tomada con la camara por ${fotosMarte.photos[i].rover.name} con su camara ${fotosMarte.photos[i].camera.full_name} 
+    el día ${fotosMarte.photos[i].earth_date}`
+    document.getElementById("tarjeta").appendChild(petiqueta);
 }
 
-marte(0);
+marte(3);
