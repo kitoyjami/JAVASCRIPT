@@ -35,6 +35,25 @@ const getAuthor = (id) => {
         }
     })
 }
+
+//Crear author
+
+const createAuthor = (jsonData) => {
+    const objConfig = {
+         url: URI, //aparatdo para crear el autor /api/v1/authors/
+         form: jsonData //la data en formato JSON
+    }
+
+   request.post(objConfig, (error,response,body)=> {
+       if(response.statusCode === 201){
+            const author = JSON.parse(body)
+            console.log("EL AUTOR FUE CREADO EXITOSAMENTE\n".green , author)
+       }else{
+        console.log(response.statusCode, response.statusMessage.magenta)
+        // 404 NOT FOUND
+       }
+   }) 
+}
 module.exports={
-    listAuthors,getAuthor
+    listAuthors,getAuthor, createAuthor
 }
