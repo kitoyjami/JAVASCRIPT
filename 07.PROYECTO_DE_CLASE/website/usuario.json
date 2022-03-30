@@ -1,0 +1,14 @@
+[
+        {
+            "ID": 70924665,
+            "NAME": "KITOYJAMI",
+            "REGION":"KANTO",
+            "POKEMON_GROUP":["CHARMANDER","PIKACHU"]
+        },
+        {
+            "ID": 70924666,
+            "NAME": "EDDYUGA",
+            "REGION":"KANTO",
+            "POKEMON_GROUP":["CHARMANDER","PIKACHU"]
+        }
+]
