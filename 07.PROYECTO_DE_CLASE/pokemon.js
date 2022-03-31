@@ -1,3 +1,9 @@
+const pokemon =async(i)=> {
+    const respuestasFotos=await fetch(`https://pokeapi.co/api/v2/pokemon/`+1);
+     const pokemonJson =await respuestasFotos.json();
+     const abilities=pokemonJson.abilities;
+     console.log(abilities);
+}
 
 
 console.log("server is starting");
@@ -22,14 +28,20 @@ function listening(){
 
 }
 app.use(express.static("website"));
-app.use("/add/:word/:otherword/:score",addWord)
+app.get("/add/:word/:otherword/:score/:region/:pokemon1/:pokemon2",addWord)
 app.get('/all',sendAll);
+
 
 
 function addWord(request,response){
     var data=request.params;
     var word= data.word;
-    words[word]={id: data.otherword, nombre: data.score};
+    words[word]={
+        id: data.otherword,
+        nombre: data.score,
+        region:data.region,
+        pokemons: [data.pokemon1, data.pokemon2]
+    };
     var datosProcesados=JSON.stringify(words,null,2);
 
     fs.writeFile("usuario.json",datosProcesados,finished);

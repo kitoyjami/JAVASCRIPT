@@ -28,16 +28,16 @@ function gotData(data){
 
 function accesoUsuario(identificador){
     var x=loadJSON("all");
-    var encotrad
     return x;
 }
 
  const pokemon =async(i)=> {
      const respuestasFotos=await fetch(`https://pokeapi.co/api/v2/pokemon/`+i)
      const fotosMarte =await respuestasFotos.json();
-     console.log(fotosMarte);
+     const abilities=fotosMarte.abilities;
+     return abilities;
  }
- pokemon("ditto");
+pokemon("ditto");
 
 
 
