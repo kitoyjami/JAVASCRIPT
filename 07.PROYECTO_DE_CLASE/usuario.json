@@ -1,22 +1,6 @@
-[
-  {
-    "ID": 70924665,
-    "NAME": "KITOYJAMI",
-    "REGION": "KANTO",
-    "POKEMON_GROUP": [
-      "CHARMANDER",
-      "PIKACHU"
-    ],
-    "nuevo": "pete"
-  },
-  {
-    "ID": 70924666,
-    "NAME": "EDDYUGA",
-    "REGION": "KANTO",
-    "POKEMON_GROUP": [
-      "CHARMANDER",
-      "PIKACHU"
-    ],
-    "poke": "puchamon2"
+{
+  "1": {
+    "id": "70924665",
+    "nombre": "kitoyjami"
   }
-]
+}

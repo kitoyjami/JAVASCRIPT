@@ -4,7 +4,7 @@ console.log("server is starting");
 var fs =require("fs");
 
 var data=fs.readFileSync("usuario.json");
-var words =JSON.parse(data)
+var words =JSON.parse(data);
 
 console.log(words);
 
@@ -25,12 +25,11 @@ app.use(express.static("website"));
 app.use("/add/:word/:otherword/:score",addWord)
 app.get('/all',sendAll);
 
+
 function addWord(request,response){
     var data=request.params;
     var word= data.word;
-    var word2=data.otherword;
-    var score= data.score
-    words[word][word2]=score;
+    words[word]={id: data.otherword, nombre: data.score};
     var datosProcesados=JSON.stringify(words,null,2);
 
     fs.writeFile("usuario.json",datosProcesados,finished);
