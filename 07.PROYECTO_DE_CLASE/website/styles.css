@@ -113,7 +113,7 @@
 }
 
 .monto{
-    height: 75px;
+    height: 150px;
     width: 181px;
     margin: 0;
     background-color: white;
@@ -135,7 +135,7 @@
     color: black;
     font-family: sans-serif;
     font-size: 16px;
-    margin-top: 18px;
+    margin-top: 12px;
 }
 
 .lista_izquierda{

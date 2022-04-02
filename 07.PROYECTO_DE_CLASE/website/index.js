@@ -1,13 +1,5 @@
-function setup (){
 
-    loadJSON("all",gotData);
-    console.log("runing");
-
-    var button=select("#submit");
-    button.mousePressed(submitWord);
-}
-
-function submitWord(){
+/* function submitWord(){
     var word =select("#word").value();
     var otherword=select("#otherword").value();
     var score= select("#score").value();
@@ -17,12 +9,128 @@ function submitWord(){
     function finished (data) {
         console.log(data);
     } 
+} */
+
+function setup (){
+    setTimeout(2000);
+    var l=loadJSON("all",gotData);
+
+    console.log("Hola");
+    
+    return l;
+    // var button=select("#submit");
+    // button.mousePressed(submitWord);
 }
 
 function gotData(data){
-    console.log(data);
-    var keys=Object.keys(data);
-    console.log(keys);
+    globalThis.usuario=data;
+    globalThis.Indice=Object.keys(usuario);
+    console.log(usuario);
+
+globalThis.usuarioActivo;
+const formLog  = document.getElementById("formulario_dni");
+let tipo = document.getElementById("tipo_usuario");
+let nombre = document.getElementById("Usuario");
+let formula=document.getElementById("formulas")
+globalThis.lienzo=document.getElementById("Lienzos");
+globalThis.bandera=0;
+globalThis.Contras;
+globalThis.formContr;
+formLog.addEventListener("submit", e => {
+    e.preventDefault();
+    if(tipo.value==="1")
+    {
+        for(let i=0;i<Indice.length;i++)
+        {
+            if(nombre.value==usuario[i].id)
+            {
+                usuarioActivo=usuario[i];
+                bandera=1;
+                formula.innerHTML=
+                        `<div class="mensaje">
+                        <p>¡Hola `+ usuarioActivo.nombre +`!</p\>
+                   </div>` + 
+                   ` <div class="consultas">
+                
+                <form id= "formulario_contraseña" class="row g-3">
+                <div class="col-12 formuario1" >
+                <label   class="form-label">Ingresa tu contraseña</label>
+                <input type="password" class="form-control" id="Contraseña" placeholder="">
+                <div id="validacion" class="invalid-feedback">
+                  Ingrese un usuario válido .
+                </div>
+              </div>
+              
+            <div class="col-12" style="padding-top: 50px;">
+              <button type="submit" id="boton1" class="btn btn-primary">Continuar</button>
+            </div>
+          </form>`
+              Contras=document.getElementById("Contraseña")
+              formContr  = document.getElementById("formulario_contraseña");
+                alert("Bienvenido "+usuario[i].nombre);
+                bandera=1;
+                accesoFinal(bandera,formContr);
+                break;
+            }
+            else
+            {
+                bandera=0;
+            }
+
+        }
+        if(bandera===0)
+        {
+            alert("Usuario invalido");
+        }
+    }
+    else{
+        for(let i=0;i<Indice.length;i++)
+        {
+            if(nombre.value==usuario[i].nombre)
+            {
+                usuarioActivo=cuentas[i];
+                bandera=1;
+                formula.innerHTML=
+        
+                `<div class="mensaje">
+                <p>¡Hola `+ usuarioActivo.nombre +`!</p\>
+                    </div>` + 
+                    ` <div class="consultas">
+                    
+                    <form id= "formulario_contraseña" class="row g-3">
+                    <div class="col-12 formuario1" >
+                    <label   class="form-label">Ingresa tu contraseña</label>
+                    <input type="password" class="form-control" id="Contraseña" placeholder="">
+                    <div id="validacion" class="invalid-feedback">
+                    Ingrese un usuario válido .
+                    </div>
+                </div>
+                
+                <div class="col-12" style="padding-top: 50px;">
+                <button type="submit" id="boton1" class="btn btn-primary">Continuar</button>
+                </div>
+            </form>`
+
+                alert("Bienvenido "+usuario[i].nombre);
+                Contras=document.getElementById("Contraseña")
+                formContr  = document.getElementById("formulario_contraseña");
+                alert("Bienvenido "+usuario[i].nombre);
+                bandera =1;
+
+                break;
+            }
+            else
+            {
+                bandera=0;
+            }
+        }
+        if(bandera===0)
+        {
+            alert("Usuario invalido");
+        }
+    }
+  })
+
 }
 
 
@@ -33,11 +141,11 @@ function accesoUsuario(identificador){
 
  const pokemon =async(i)=> {
      const respuestasFotos=await fetch(`https://pokeapi.co/api/v2/pokemon/`+i)
-     const fotosMarte =await respuestasFotos.json();
-     const abilities=fotosMarte.abilities;
-     return abilities;
+     const pokemonEnlace =await respuestasFotos.json();
+     const pokemon2=pokemonEnlace.sprites.front_default;
+     console.log(pokemon2)
  }
-pokemon("ditto");
+//pokemon("ditto");
 
 
 
@@ -86,110 +194,6 @@ class entrenador {
     }
 }
 
-let usuarioActivo;
-const formLog  = document.getElementById("formulario_dni");
-let tipo = document.getElementById("tipo_usuario");
-let nombre = document.getElementById("Usuario");
-let formula=document.getElementById("formulas")
-let lienzo=document.getElementById("Lienzos");
-let bandera=0;
-var Contras;
-var formContr;
-formLog.addEventListener("submit", e => {
-    e.preventDefault();
-    if(tipo.value==="1")
-    {
-        for(let i=0;i<cuentas.length;i++)
-        {
-            if(nombre.value==cuentas[i].getDni)
-            {
-                usuarioActivo=cuentas[i];
-                bandera=1;
-                formula.innerHTML=
-                        `<div class="mensaje">
-                        <p>¡Hola `+ usuarioActivo.getNombre +`!</p\>
-                   </div>` + 
-                   ` <div class="consultas">
-                
-                <form id= "formulario_contraseña" class="row g-3">
-                <div class="col-12 formuario1" >
-                <label   class="form-label">Ingresa tu contraseña</label>
-                <input type="password" class="form-control" id="Contraseña" placeholder="">
-                <div id="validacion" class="invalid-feedback">
-                  Ingrese un usuario válido .
-                </div>
-              </div>
-              
-            <div class="col-12" style="padding-top: 50px;">
-              <button type="submit" id="boton1" class="btn btn-primary">Continuar</button>
-            </div>
-          </form>`
-              Contras=document.getElementById("Contraseña")
-              formContr  = document.getElementById("formulario_contraseña");
-                alert("Bienvenido "+cuentas[i].getNombre);
-                bandera=1;
-                accesoFinal(bandera,formContr);
-                break;
-            }
-            else
-            {
-                bandera=0;
-            }
-
-        }
-        if(bandera===0)
-        {
-            alert("Usuario invalido");
-        }
-    }
-    else{
-        for(let i=0;i<cuentas.length;i++)
-        {
-            if(nombre.value==cuentas[i].getNombre)
-            {
-                usuarioActivo=cuentas[i];
-                bandera=1;
-                formula.innerHTML=
-        
-                `<div class="mensaje">
-                <p>¡Hola `+ usuarioActivo.getNombre +`!</p\>
-                    </div>` + 
-                    ` <div class="consultas">
-                    
-                    <form id= "formulario_contraseña" class="row g-3">
-                    <div class="col-12 formuario1" >
-                    <label   class="form-label">Ingresa tu contraseña</label>
-                    <input type="password" class="form-control" id="Contraseña" placeholder="">
-                    <div id="validacion" class="invalid-feedback">
-                    Ingrese un usuario válido .
-                    </div>
-                </div>
-                
-                <div class="col-12" style="padding-top: 50px;">
-                <button type="submit" id="boton1" class="btn btn-primary">Continuar</button>
-                </div>
-            </form>`
-
-                alert("Bienvenido "+cuentas[i].getNombre);
-                Contras=document.getElementById("Contraseña")
-                formContr  = document.getElementById("formulario_contraseña");
-                alert("Bienvenido "+cuentas[i].getNombre);
-                bandera =1;
-
-                break;
-            }
-            else
-            {
-                bandera=0;
-            }
-        }
-        if(bandera===0)
-        {
-            alert("Usuario invalido");
-        }
-    }
-  })
-
  accesoFinal(bandera,formContr);
 function accesoFinal(bander,formC){
     var button3;
@@ -198,7 +202,7 @@ function accesoFinal(bander,formC){
   {
   formContr.addEventListener("submit", a => {
     a.preventDefault();
-            if(Contras.value==usuarioActivo.getContraseña)
+            if(Contras.value==usuarioActivo.contra)
             {
               
               bander=2;
@@ -208,19 +212,26 @@ function accesoFinal(bander,formC){
               
               `<div class="barraLateral">
 
-              <div class="producto"><p class="texto1">Mis saldos</p></div>
+              <div class="producto"><p class="texto1">${usuarioActivo.nombre}`+`</p></div>
               <div class="monto">
-              <p class="mostrarMonto"> $ ` +usuarioActivo.getSaldo.toFixed(2) + `</p></div>
+              <a>
+                <p class="mostrarMonto"> Region:  ` +`${usuarioActivo.region}` + `</p>
+                <p class="mostrarMonto"> Pokemons:      </p>
+                <ol>
+                <li>${usuarioActivo.pokemons[0]}</li>
+                <li>${usuarioActivo.pokemons[1]}</li>
+                </ol>
+              </a>
+             
+              </div>
               </div>
               
               <div class="pantallaOperaciones">
 
               <div class="lista_izquierda">
-              <div class="Quiero"><p class="Quiero_Escrito">Quiero</p> </div>
+              <div class="Quiero"><p class="Quiero_Escrito">Mis pokemons</p> </div>
               <div class="recuadro">
-               <div class="retirar"><button  id="boton3" class="btn btn-primary">Retirar</button></div>
-            <div class="ingresar"><button id="boton4" class="btn btn-primary">Ingresar</button></div>    
-
+            
               </div>
               </div>
 
@@ -235,9 +246,9 @@ function accesoFinal(bander,formC){
               if (bander==2)
               {
                 button3=document.getElementById("boton3");
-                button3.addEventListener("submit",usuarioActivo.ingresarMonto);
+               // button3.addEventListener("submit",usuarioActivo.ingresarMonto);
                 button4=document.getElementById("boton4");
-                button4.addEventListener("submit",usuarioActivo.retirarMonto);
+                //button4.addEventListener("submit",usuarioActivo.retirarMonto);
               }
 
             }
@@ -251,8 +262,3 @@ function accesoFinal(bander,formC){
   }
 
 }
-
-
-
-
-

@@ -1,19 +1,11 @@
-const pokemon =async(i)=> {
-    const respuestasFotos=await fetch(`https://pokeapi.co/api/v2/pokemon/`+1);
-     const pokemonJson =await respuestasFotos.json();
-     const abilities=pokemonJson.abilities;
-     console.log(abilities);
-}
-
 
 console.log("server is starting");
 var fs =require("fs");
 
 var data=fs.readFileSync("usuario.json");
-var words =JSON.parse(data);
+let words =JSON.parse(data);
 
-console.log(words);
-
+console.log(words[1].pokemons[1].toString());
 
 var express =require("express");
 const { response } = require("express");
@@ -27,6 +19,10 @@ function listening(){
     console.log("listening...");
 
 }
+
+
+
+
 app.use(express.static("website"));
 app.get("/add/:word/:otherword/:score/:region/:pokemon1/:pokemon2",addWord)
 app.get('/all',sendAll);

@@ -1,16 +1,51 @@
 {
-  "1": {},
-  "3": {
-    "id": "70924665",
-    "nombre": "kitoyjami",
+  "0": {
+    "id": "74969821",
+    "nombre": "minano",
+    "contra": "minano@123",
     "region": "kanto",
     "pokemons": [
-      {
-        "pokemon": "ditto"
-      },
-      {
-        "pokemon": "pikachu"
-      }
+      "pikachu",
+      "charmander"
+    ]
+  },
+  "1": {
+    "id": "18857844",
+    "nombre": "Maicol",
+    "contra": "maicol@123",
+    "region": "Jhoto",
+    "pokemons": [
+      "ditto",
+      "bulbasur"
+    ]
+  },
+  "2": {
+    "id": "70924665",
+    "nombre": "kitoyjami",
+    "contra": "eddy@123",
+    "region": "kanto",
+    "pokemons": [
+      "ditto",
+      "pikachu"
+    ]
+  },
+  "3": {
+    "id": "73117159",
+    "nombre": "vana",
+    "contra": "vana@123",
+    "region": "Kanto",
+    "pokemons": [
+      "squirtle",
+      "abra"
+    ]
+  },
+  "4": {
+    "id": "70458579",
+    "nombre": "carlos",
+    "region": "jhoto",
+    "pokemons": [
+      "lugia",
+      "raichu"
     ]
   }
 }
