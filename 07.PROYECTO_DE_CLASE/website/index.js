@@ -139,12 +139,7 @@ function accesoUsuario(identificador){
     return x;
 }
 
- const pokemon =async(i)=> {
-     const respuestasFotos=await fetch(`https://pokeapi.co/api/v2/pokemon/`+i)
-     const pokemonEnlace =await respuestasFotos.json();
-     const pokemon2=pokemonEnlace.sprites.front_default;
-     console.log(pokemon2)
- }
+
 //pokemon("ditto");
 
 
@@ -194,10 +189,20 @@ class entrenador {
     }
 }
 
- accesoFinal(bandera,formContr);
-function accesoFinal(bander,formC){
+// accesoFinal(bandera,formContr);
+ const pokemon =async(i)=> 
+               {
+                const respuestasFotos=await fetch(`https://pokeapi.co/api/v2/pokemon/`+i)
+                const pokemonEnlace =await respuestasFotos.json();
+                const pokemon2=pokemonEnlace.sprites.front_default;
+                console.log(pokemon2)
+                }
+
+ function accesoFinal(bander,formC){
     var button3;
     var button4;
+
+
  if(bander==1)
   {
   formContr.addEventListener("submit", a => {
@@ -236,7 +241,7 @@ function accesoFinal(bander,formC){
               </div>
 
             <div class="lista_derecha">
-              <div class="Quiero2"><p class="Quiero_Escrito2">Mi Lista</p> </div>
+              <div class="Quiero2"><p class="Quiero_Escrito2">${pokemon(usuarioActivo.pokemons[0])}</p> </div>
               <div class="recuadro2"></div>
             </div>
 
