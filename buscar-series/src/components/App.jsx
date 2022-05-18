@@ -1,24 +1,31 @@
 import { Movies } from './Movies'
 import { getMovies } from '../services/getMovies'
+import { useRef, useState } from 'react'
+
 function App () {
+  const buscarRef = useRef()
+
+  const [data, setData] = useState([])
+
   const onGetMovies = async (e) => {
     e.preventDefault()
-    const result = await getMovies({ query: 'superman' })
+    const { value } = buscarRef.current
+    const result = await getMovies({ query: value })
+    setData(result)
     console.log(result)
   }
   return (
     <section className='container'>
       <h4 className='py-4 text-center'>Buscador de series</h4>
       {/* Buscador */}
-      <form>
+      <form onSubmit={onGetMovies}>
         <div className='input-group'>
-          <input type='text' className='form-control' placeholder='Buscar...' />
-          <button onClick={onGetMovies} className='btn btn-primary'> Buscar </button>
+          <input ref={buscarRef} type='text' className='form-control' placeholder='Buscar...' />
+          <button className='btn btn-primary'> Buscar </button>
         </div>
       </form>
-
       {/* Grid de peliculas */}
-      <Movies />
+      <Movies data={data} />
     </section>
   )
 }

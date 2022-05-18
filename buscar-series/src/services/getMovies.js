@@ -8,3 +8,11 @@ export const getMovies = async ({ query }) => {
   const res = req.data.Response === 'True' ? req.data.Search : []
   return res
 }
+
+export const getMoviesDetails = async ({ id = '' }) => {
+  const req = await axios.get(`http://www.omdbapi.com/?apikey=${VITE_API_KEY}&i=${id}`)
+  console.log(req)
+  const res = req.data.Response === 'True' ? req.data : {}
+  console.log(res)
+  return res
+}
