@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navbar{
+  background-color:#3f3f3f;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+}
+.Logueado{
+  display: flex;
+  justify-content: space-between;
+  font-size: xx-large;
+}
+.input-group{
+  height: 50px;
+  }
+
+.btn{
+  background-color: #3c948b;
+}
+

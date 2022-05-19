@@ -1,13 +1,14 @@
-import { useState } from 'react'
-import './App.css'
+import { BarraBusqueda, Selector } from './BarraBusqueda'
+import { LienzoPrincipal } from './Lienzo'
 
 function App () {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className='App'>
-      <h1>Hola Mundo</h1>
-    </div>
+    <section>
+      <BarraBusqueda />
+      <Selector />
+      <LienzoPrincipal />
+    </section>
+
   )
 }
 
