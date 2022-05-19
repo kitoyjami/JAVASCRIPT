@@ -1,11 +1,10 @@
-import { BarraBusqueda, Selector } from './BarraBusqueda'
+import { BarraBusqueda } from './BarraBusqueda'
 import { LienzoPrincipal } from './Lienzo'
 
 function App () {
   return (
     <section>
       <BarraBusqueda />
-      <Selector />
       <LienzoPrincipal />
     </section>
 
