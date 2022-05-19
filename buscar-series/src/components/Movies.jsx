@@ -11,7 +11,7 @@ export const Movies = ({ data }) => {
               {
                 data.map(movie => (
                   <li style={{ listStyle: 'none' }} key={movie.imdbID} className='col-3'>
-                    <Link to={`movie/${movie.imdbID}`} style={{ textDecoration: 'none ' }}>
+                    <Link to={`/movie/${movie.imdbID}`} style={{ textDecoration: 'none ' }}>
                       <article className='card text-dark'>
                         <figure>
                           <img className='img-fluid' src={movie.Poster} alt={movie.Title} />

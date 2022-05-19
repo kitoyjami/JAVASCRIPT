@@ -6,11 +6,20 @@ function App () {
   const buscarRef = useRef()
 
   const [data, setData] = useState([])
+  const [error, setError] = useState(null)
 
   const onGetMovies = async (e) => {
     e.preventDefault()
     const { value } = buscarRef.current
     const result = await getMovies({ query: value })
+    if (result.sms) {
+      setData('')
+      setError(result)
+    } else {
+      setData(result)
+      setError('')
+    }
+
     setData(result)
     console.log(result)
   }
@@ -20,11 +29,12 @@ function App () {
       {/* Buscador */}
       <form onSubmit={onGetMovies}>
         <div className='input-group'>
-          <input ref={buscarRef} type='text' className='form-control' placeholder='Buscar...' />
+          <input ref={buscarRef} type='text' className='form-control' placeholder='Buscar...' required />
           <button className='btn btn-primary'> Buscar </button>
         </div>
       </form>
       {/* Grid de peliculas */}
+      {error ? <p className='text-center py-5'>{error.sms}</p> : null}
       <Movies data={data} />
     </section>
   )
