@@ -1,24 +1,25 @@
 import '../styles/index.css'
 import { getSeries } from '../services/getSeries'
 import { useRef, useState } from 'react'
+import { LienzoPrincipal } from './Lienzo'
 
 export const BarraBusqueda = () => {
   const buscarRef = useRef()
 
-  const [data, setData] = useState('')
+  const [Recibirdata, setData] = useState([])
 
   const onGetSeries = async (e) => {
     e.preventDefault()
     const { value } = buscarRef.current
-    console.log({ query: value })
     const result = await getSeries({ query: value })
     setData(result)
-    console.log(result)
+    console.log(Recibirdata)
   }
+  console.log(Recibirdata)
 
   return (
     <>
-      <nav className='navbar fixed-top'>
+      <nav className='navbar'>
 
         <a href='https://www.tvmaze.com/'>
           <img src='https://static.tvmaze.com/images/tvm-header-logo.png' className='align-text-top' />
@@ -34,6 +35,8 @@ export const BarraBusqueda = () => {
           <div className='Register'><a>Register</a></div>
         </div>
       </nav>
+      <LienzoPrincipal Recibirdata={Recibirdata} />
+
     </>
   )
 }

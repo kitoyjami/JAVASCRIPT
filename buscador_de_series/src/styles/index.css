@@ -31,4 +31,10 @@ code {
 .btn{
   background-color: #3c948b;
 }
-
+.contenedor{
+  display: flex;
+  flex-direction:column;
+}
+.Lienzo{
+  padding-top: 15px;
+}
